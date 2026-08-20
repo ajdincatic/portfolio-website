@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ajdin Ćatić — Software Engineer focused on AI, backend systems and scalable web applications."
+    />
+    <meta name="theme-color" content="#080808" />
+    <title>Ajdin Ćatić — Software Engineer</title>
+    <style>
+      :root {
+        --bg: #080808;
+        --fg: #f5f5f2;
+        --muted: #9b9b96;
+        --line: #242422;
+        --card: #10100f;
+        --lime: #d8ff52;
+        --max: 1180px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.5;
+      }
+      body:before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.025;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        width: min(calc(100% - 40px), var(--max));
+        margin: auto;
+      }
+      nav {
+        position: fixed;
+        z-index: 50;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(8, 8, 8, 0.72);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .nav {
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+      .brand i {
+        color: var(--lime);
+        font-style: normal;
+      }
+      .navlinks {
+        display: flex;
+        gap: 25px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .navlinks a:hover {
+        color: var(--fg);
+      }
+      .availability {
+        font-size: 11px;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--lime);
+        box-shadow: 0 0 12px var(--lime);
+      }
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 120px 0 80px;
+      }
+      .eyebrow {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--lime);
+        font-weight: 800;
+        margin-bottom: 28px;
+      }
+      h1 {
+        font-size: clamp(58px, 10vw, 132px);
+        line-height: 0.86;
+        letter-spacing: -0.085em;
+        max-width: 1050px;
+      }
+      h1 span {
+        color: #686864;
+      }
+      .lead {
+        max-width: 680px;
+        color: var(--muted);
+        font-size: 18px;
+        margin-top: 36px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+      .btn {
+        border: 1px solid var(--line);
+        padding: 11px 16px;
+        border-radius: 999px;
+        font-size: 12px;
+        transition: 0.2s;
+      }
+      .btn:hover {
+        border-color: #555;
+        transform: translateY(-2px);
+      }
+      .btn.main {
+        background: var(--lime);
+        color: #080808;
+        border-color: var(--lime);
+        font-weight: 800;
+      }
+      & .meta {
+        display: flex;
+        gap: 35px;
+        margin-top: 75px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        max-width: 850px;
+      }
+      .meta strong {
+        font-size: 24px;
+        letter-spacing: -0.05em;
+        display: block;
+      }
+      .meta small {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      section {
+        padding: 120px 0;
+        border-top: 1px solid var(--line);
+      }
+      .label {
+        font-size: 10px;
+        color: var(--lime);
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+      .section-title {
+        font-size: clamp(38px, 6vw, 72px);
+        letter-spacing: -0.075em;
+        line-height: 0.95;
+        margin: 20px 0 55px;
+      }
+      .intro {
+        max-width: 600px;
+        color: var(--muted);
+        font-size: 16px;
+      }
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .work {
+        min-height: 360px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: 0.25s;
+      }
+      .work:hover {
+        transform: translateY(-5px);
+        border-color: #4a4a46;
+      }
+      .work-top {
+        display: flex;
+        justify-content: space-between;
+        color: #686864;
+        font-size: 11px;
+      }
+      .work h3 {
+        font-size: 31px;
+        letter-spacing: -0.055em;
+        margin-bottom: 10px;
+      }
+      .work p {
+        font-size: 13px;
+        color: var(--muted);
+        max-width: 330px;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 22px;
+      }
+      .tag {
+        font-size: 10px;
+        border: 1px solid var(--line);
+        padding: 6px 8px;
+        border-radius: 99px;
+        color: #aaa;
+      }
+      .timeline {
+        border-top: 1px solid var(--line);
+      }
+      .role {
+        display: grid;
+        grid-template-columns: 180px 1fr 130px;
+        gap: 35px;
+        padding: 35px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .role-date,
+      .role-place {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .role-place {
+        text-align: right;
+      }
+      .role h3 {
+        font-size: 23px;
+        letter-spacing: -0.04em;
+      }
+      .company {
+        color: var(--lime);
+        font-size: 12px;
+        margin: 4px 0 18px;
+      }
+      .role ul {
+        padding-left: 17px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .role li {
+        margin: 7px 0;
+      }
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-top: 1px solid var(--line);
+      }
+      .skill {
+        padding: 25px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .skill:nth-child(odd) {
+        padding-right: 40px;
+      }
+      .skill:nth-child(even) {
+        padding-left: 40px;
+        border-left: 1px solid var(--line);
+      }
+      .skill h3 {
+        font-size: 12px;
+        margin-bottom: 9px;
+      }
+      .skill p {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 100px;
+      }
+      .about-copy {
+        font-size: 23px;
+        line-height: 1.3;
+        letter-spacing: -0.035em;
+      }
+      .about-copy span {
+        color: #666;
+      }
+      .education {
+        margin-top: 25px;
+      }
+      .edu {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 13px;
+      }
+      .edu small,
+      .edu time {
+        color: var(--muted);
+        font-size: 10px;
+      }
+      .contact-box {
+        border: 1px solid var(--line);
+        padding: 55px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 40px;
+        background: linear-gradient(135deg, #11110f, #0b0b0a);
+      }
+      .contact-box h2 {
+        font-size: clamp(42px, 6vw, 76px);
+        letter-spacing: -0.075em;
+        line-height: 0.9;
+      }
+      .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        font-size: 12px;
+        color: var(--muted);
+        text-align: right;
+      }
+      .contact-links a:hover {
+        color: var(--lime);
+      }
+      footer {
+        padding: 25px 0;
+        color: #666;
+        font-size: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+      @media (max-width: 800px) {
+        .wrap {
+          width: min(calc(100% - 28px), var(--max));
+        }
+        .navlinks {
+          display: none;
+        }
+        .availability {
+          display: none;
+        }
+        .hero {
+          padding-top: 100px;
+        }
+        .meta {
+          gap: 22px;
+        }
+        .work-grid,
+        .about {
+          grid-template-columns: 1fr;
+        }
+        .role {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        .role-place {
+          text-align: left;
+        }
+        .skills {
+          grid-template-columns: 1fr;
+        }
+        .skill:nth-child(odd),
+        .skill:nth-child(even) {
+          padding: 22px 0;
+          border-left: 0;
+        }
+        .contact-box {
+          padding: 30px;
+          display: block;
+        }
+        .contact-links {
+          text-align: left;
+          margin-top: 30px;
+        }
+        section {
+          padding: 85px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="wrap nav">
+        <a href="#" class="brand">AJDIN<span>Ć</span>.</a>
+        <div class="navlinks">
+          <a href="#work">Work</a><a href="#experience">Experience</a
+          ><a href="#stack">Stack</a><a href="#about">About</a
+          ><a href="#contact">Contact</a>
+        </div>
+        <div class="availability"><i class="dot"></i> Sarajevo, BA</div>
+      </div>
+    </nav>
+
+    <header class="wrap hero">
+      <div>
+        <div class="eyebrow">Software Engineer · AI & Full-Stack</div>
+        <h1>Software<br /><span>with intent.</span></h1>
+        <p class="lead">
+          I build scalable web applications, backend systems and AI-powered
+          products — from architecture and APIs to production LLM integrations.
+        </p>
+        <div class="hero-actions">
+          <a class="btn main" href="#work">Explore work ↓</a>
+          <a
+            class="btn"
+            href="https://github.com/ajdincatic"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub ↗</a
+          >
+          <a
+            class="btn"
+            href="https://www.linkedin.com/in/ajdin-catic"
+            target="_blank"
+            rel="noreferrer"
+            >LinkedIn ↗</a
+          >
+        </div>
+        <div class="meta">
+          <div><strong>5+</strong><small>YEARS EXPERIENCE</small></div>
+          <div><strong>100K+</strong><small>DAILY USERS</small></div>
+          <div><strong>AI / LLM</strong><small>CURRENT FOCUS</small></div>
+        </div>
+      </div>
+    </header>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="label">01 — Selected work</div>
+        <h2 class="section-title">Built, shipped,<br />used.</h2>
+        <p class="intro" style="margin-top: -30px; margin-bottom: 45px">
+          Selected projects from my independent work, spanning web applications,
+          browser tooling and internal business systems.
+        </p>
+        <div class="work-grid">
+          <article class="work">
+            <div class="work-top">
+              <span>PROJECT / 01</span><span>WEB APP</span>
+            </div>
+            <div>
+              <h3>Wedding Seats</h3>
+              <p>Wedding seating planning application.</p>
+              <div class="tags">
+                <span class="tag">TypeScript</span
+                ><span class="tag">Next.js</span
+                ><span class="tag">Tailwind</span>
+              </div>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work-top">
+              <span>PROJECT / 02</span><span>EXTENSION</span>
+            </div>
+            <div>
+              <h3>HealthBuddy</h3>
+              <p>
+                Personal health companion focused on reminders for breaks,
+                hydration and eye protection.
+              </p>
+              <div class="tags">
+                <span class="tag">JavaScript</span
+                ><span class="tag">Chrome APIs</span>
+              </div>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work-top">
+              <span>PROJECT / 03</span><span>INTERNAL SYSTEM</span>
+            </div>
+            <div>
+              <h3>ManageEase</h3>
+              <p>Employee management information system.</p>
+              <div class="tags">
+                <span class="tag">TypeScript</span
+                ><span class="tag">NestJS</span><span class="tag">React</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="label">02 — Experience</div>
+        <h2 class="section-title">Production<br />over theory.</h2>
+        <div class="timeline">
+          <article class="role">
+            <div class="role-date">12/2024 — PRESENT</div>
+            <div>
+              <h3>Software / AI Engineer</h3>
+              <div class="company">Social Explorer</div>
+              <ul>
+                <li>
+                  Build and maintain an AI-powered chatbot with the OpenAI API,
+                  using function calling / tool use to connect responses with
+                  application data.
+                </li>
+                <li>
+                  Use Claude Code and AI-assisted development workflows for
+                  development, prototyping and implementation.
+                </li>
+                <li>
+                  Lead feature planning and translate product requirements into
+                  technical solutions.
+                </li>
+                <li>
+                  Contribute to GIS, data visualization, mapping and
+                  visual-content systems.
+                </li>
+              </ul>
+            </div>
+            <div class="role-place">Sarajevo</div>
+          </article>
+          <article class="role">
+            <div class="role-date">11/2023 — 12/2024</div>
+            <div>
+              <h3>Full-Stack Engineer</h3>
+              <div class="company">Fischer, Knoblauch & Co.</div>
+              <ul>
+                <li>
+                  Developed and maintained an LMS serving 100,000+ daily users
+                  across large organizations in Germany.
+                </li>
+                <li>
+                  Designed and integrated production modules and took on a
+                  leading developer role with PR review responsibility.
+                </li>
+                <li>
+                  Refactored inefficient code and redesigned slow processes for
+                  asynchronous background execution.
+                </li>
+                <li>
+                  Built advanced logging and managed server deployments with
+                  minimal disruption.
+                </li>
+              </ul>
+            </div>
+            <div class="role-place">Sarajevo</div>
+          </article>
+          <article class="role">
+            <div class="role-date">12/2020 — 11/2023</div>
+            <div>
+              <h3>Full-Stack Developer</h3>
+              <div class="company">QSD</div>
+              <ul>
+                <li>
+                  Led backend development for a large-scale startup project.
+                </li>
+                <li>
+                  Developed and maintained payment-system functionality for
+                  reliable and secure transaction processing.
+                </li>
+                <li>
+                  Built a company website, internal employee management system
+                  and IoT-based smart post-box system.
+                </li>
+              </ul>
+            </div>
+            <div class="role-place">Mostar</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="wrap">
+        <div class="label">03 — Technical stack</div>
+        <h2 class="section-title">The tools<br />behind the work.</h2>
+        <div class="skills">
+          <div class="skill">
+            <h3>AI & LLM</h3>
+            <p>
+              OpenAI API · Claude · LLM Applications · Function Calling / Tool
+              Use · AI Chatbots · Vector Databases
+            </p>
+          </div>
+          <div class="skill">
+            <h3>Backend</h3>
+            <p>
+              Node.js · NestJS · Express.js · Ruby on Rails · Laravel · REST ·
+              GraphQL
+            </p>
+          </div>
+          <div class="skill">
+            <h3>Languages</h3>
+            <p>TypeScript · JavaScript · Python · Ruby · PHP</p>
+          </div>
+          <div class="skill">
+            <h3>Frontend</h3>
+            <p>
+              React · Next.js · Angular · HTML · CSS · SASS · Bootstrap ·
+              Tailwind
+            </p>
+          </div>
+          <div class="skill">
+            <h3>Databases</h3>
+            <p>PostgreSQL · MySQL · Redis · Pinecone · MongoDB</p>
+          </div>
+          <div class="skill">
+            <h3>Cloud & DevOps</h3>
+            <p>
+              AWS · Firebase · Docker · Linux · Bash · CI/CD · Server Deployment
+            </p>
+          </div>
+          <div class="skill">
+            <h3>Architecture & Engineering</h3>
+            <p>
+              Software Architecture · Microservices · API Design · Async
+              Processing · Design Patterns · Performance Optimization · Testing
+            </p>
+          </div>
+          <div class="skill">
+            <h3>Tools & Practices</h3>
+            <p>Git · Scrum · Agile</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="label">04 — About</div>
+        <h2 class="section-title">Engineer first.<br />AI native.</h2>
+        <div class="about">
+          <p class="about-copy">
+            Software Engineer with 5+ years of experience building scalable web
+            applications, backend systems and AI-powered solutions.
+            <span
+              >Currently focused on AI-powered applications and AI-assisted
+              development, with experience leading feature development and
+              making technical decisions across frontend and backend
+              systems.</span
+            >
+          </p>
+          <div>
+            <div class="label">Education</div>
+            <div class="education">
+              <div class="edu">
+                <div>
+                  Master of Information Technologies<br /><small
+                    >Faculty of Information Technologies</small
+                  >
+                </div>
+                <time>2024–2025</time>
+              </div>
+              <div class="edu">
+                <div>
+                  Engineer of Information Technology<br /><small
+                    >Faculty of Information Technologies</small
+                  >
+                </div>
+                <time>2021–2023</time>
+              </div>
+              <div class="edu">
+                <div>
+                  Bachelor of Information Technology<br /><small
+                    >Faculty of Information Technologies</small
+                  >
+                </div>
+                <time>2017–2020</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <div class="label">05 — Contact</div>
+            <h2 style="margin-top: 20px">Let's build<br />something useful.</h2>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:ajdincatic70230@gmail.com"
+              >ajdincatic70230@gmail.com</a
+            >
+            <a href="tel:+38762738460">+387 (62) 738 460</a>
+            <a
+              href="https://github.com/ajdincatic"
+              target="_blank"
+              rel="noreferrer"
+              >github.com/ajdincatic ↗</a
+            >
+            <a
+              href="https://www.linkedin.com/in/ajdin-catic"
+              target="_blank"
+              rel="noreferrer"
+              >linkedin.com/in/ajdin-catic ↗</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <span>© 2026 Ajdin Ćatić</span
+      ><span>Software Engineer · AI & Backend</span>
+    </footer>
+  </body>
+</html>
